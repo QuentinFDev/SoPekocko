@@ -12,7 +12,7 @@ exports.signup = (req, res, next) => {
             });
             user.save()
                 .then(() => res.status(201).json({message: 'utilisateur créé !'}))
-                .catch(error => res.status(400).json({ error }));
+                .catch(error => res.status(400).json({ error: 'adresse e-mail déjà utilisée ou mot de passe invalide' }));
         })
         .catch(error => res.status(500).json({ error }));
 };
@@ -32,7 +32,7 @@ exports.login = (req, res, next) => {
                     userId: user._id,
                     token: jwt.sign(
                         {userId: user._id},
-                        'RANDOM_TOKEN_SECRET',
+                        'QFLIUjdhfuz6548zqJhUH',
                         { expiresIn: '24h'}
                     )                
                 });

@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const xss = require('xss-clean');
+const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require ('express-rate-limit');
 
 const sauceRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
@@ -22,6 +25,15 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use(xss());
+app.use(mongoSanitize());
+app.use(express.json({ limit: '10kb' })); // Body limit is 10
+const limit = rateLimit({
+  max: 100,// max requests
+  windowMs: 60 * 60 * 1000, // 1 Hour
+  message: 'Too many requests' // message to send
+});
+app.use('/routeName', limit); // Setting limiter on specific route
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

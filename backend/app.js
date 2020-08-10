@@ -29,11 +29,11 @@ app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json({ limit: '10kb' })); // Body limit is 10
 const limit = rateLimit({
-  max: 100,// max requests
   windowMs: 60 * 60 * 1000, // 1 Hour
+  max: 100,// max requests
   message: 'Too many requests' // message to send
 });
-app.use('/routeName', limit); // Setting limiter on specific route
+app.use(limit); //apply to  all requests
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

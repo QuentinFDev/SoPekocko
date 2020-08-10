@@ -1,5 +1,5 @@
 const Sauce = require('../models/sauces');
-const fs = require('fs');
+const fs = require('fs'); //accès aux fonctions de modification de fichiers
 
 
 exports.createSauce = (req, res, next)=> {

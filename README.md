@@ -13,16 +13,8 @@
 
 #  2.dossier backend
     -faire un cd backend dans la console
-        -npm init avec un entrypoint server.js
+        -npm init
         -npm install -g nodemon
-        -npm install --save express
-        -npm install --save mongoose
-        -npm install --save mongoose-unique-validator
-        -npm install --save bcrypt
-        -npm install --save body-parser
-        -npm install --save jsonwebtoken
-        -npm install --save multer
-        (en option -npm install --save mongoose-validator)
 
 # lancer le serveur sur localhost://4200
 

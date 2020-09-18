@@ -9,12 +9,13 @@
     -faire un cd frontend dans la console
         -npm install
         -npm install node -sass
-    lancer le serveur avec ng serve
+    lancer le serveur avec: ng serve
 
 #  2.dossier backend
     -faire un cd backend dans la console
         -npm init
         -npm install -g nodemon
+    lancer le serveur avec: nodemon serve
 
 # lancer le serveur sur localhost://4200
 
